@@ -2,7 +2,7 @@
 // @name     Goatlings Accessibility Mod
 // @namespace goatlings.accessibility
 // @description Accessibility features for Goatlings
-// @version  1.0.2
+// @version  1.0.3
 // @grant    none
 // @match https://www.goatlings.com/*
 // ==/UserScript==
@@ -44,7 +44,9 @@ if (page.includes("battle")) {
     findText("Current Explore Adventure").innerHTML += " (3)";
     findText("Your Inventory").innerHTML += " (4)";
     findText("Your Goatlings").innerHTML += " (5)";
-    document.querySelectorAll('input[type="submit" i]')[1].value = "Press Spacebar to Battle Again";
+    if (document.querySelectorAll('input[type="submit" i]')[1]) {
+      document.querySelectorAll('input[type="submit" i]')[1].value = "Press Spacebar to Battle Again";
+    }
   } else if (page === "https://www.goatlings.com/battle/create_temp") {
     findText("inventory").textContent += " (Press Spacebar)";
   }
