@@ -2,7 +2,7 @@
 // @name     Goatlings Accessibility Mod
 // @namespace goatlings.accessibility
 // @description Accessibility features for Goatlings
-// @version  1.0.1
+// @version  1.0.2
 // @grant    none
 // @match https://www.goatlings.com/*
 // ==/UserScript==
@@ -179,7 +179,7 @@ function explore_function(key) {
       exploreWindow.click();
     } else if (key == 1) {
       let yesBattle = findText("Start Battle (1)")
-      yesBattlclick()
+      yesBattle.click()
     } else if (key == 2) {
       let noBattle = findText("Run Away (2)")
       noBattle.click()
