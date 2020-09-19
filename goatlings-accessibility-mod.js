@@ -2,7 +2,7 @@
 // @name     Goatlings Accessibility Mod
 // @namespace goatlings.accessibility
 // @description Accessibility features for Goatlings
-// @version  1.0.3
+// @version  1.2.0
 // @grant    none
 // @match https://www.goatlings.com/*
 // ==/UserScript==
@@ -31,6 +31,7 @@ if (page.includes("battle")) {
     }
   } else if (page === "https://www.goatlings.com/battle/thebattle") {
     window.battleItems = document.querySelectorAll(".itema");
+    document.getElementsByName("s")[1].value = "Press Spacebar to " + document.getElementsByName("s")[1].value
     for (i = 0; i < window.battleItems.length; i++) {
       window.battleItems[i].innerHTML += `<br> ${i+1}`;
     }
@@ -104,6 +105,17 @@ if (page.includes("battle")) {
     for (i = 1; i < battleButtons.length; i++) {
       battleButtons[i].value = battleButtons[i].value + ` (${i})`
     }
+  }
+} else if (page.includes("rps")) {
+  mode = "rps";
+  modsActive = true;
+
+  if (page == "https://www.goatlings.com/rps") {
+    document.body.innerHTML = document.body.innerHTML.replace("https://www.goatlings.com/images/games/rps/Butterfly.jpg", "https://cdn.discordapp.com/attachments/500206268909223936/756708475211350166/Butterfly1.jpg");
+    document.body.innerHTML = document.body.innerHTML.replace("https://www.goatlings.com/images/games/rps/Flower.jpg", "https://cdn.discordapp.com/attachments/500206268909223936/756708480139657246/Flower2.jpg");
+    document.body.innerHTML = document.body.innerHTML.replace("https://www.goatlings.com/images/games/rps/Net.jpg", "https://cdn.discordapp.com/attachments/500206268909223936/756708483243704371/Net3.jpg");
+  } else if (page.includes("play")) {
+    findText("Play Again?").textContent = "Press Spacebar to play again!";
   }
 }
 
@@ -237,6 +249,22 @@ function hol_function(key) {
   }
 }
 
+function rps_function(key) {
+  if (page.includes("play") && (key === ' ' || key === 'Spacebar')) {
+    findText("Press Spacebar to play again!").click();
+  } else if (page == "https://www.goatlings.com/rps") {
+    let butterfly = Array.prototype.slice.call(document.querySelectorAll("a[href='https://www.goatlings.com/rps/play/2']"))[0];
+    let flower = Array.prototype.slice.call(document.querySelectorAll("a[href='https://www.goatlings.com/rps/play/3']"))[0];
+    let net = Array.prototype.slice.call(document.querySelectorAll("a[href='https://www.goatlings.com/rps/play/1']"))[0];
+
+    let rps_array = [butterfly, flower, net];
+
+    if (key > 0 && key < 4) {
+      rps_array[key - 1].click();
+    } 
+  }
+}
+
 function kPress(e) {
   switch (mode) {
     case "battle":
@@ -247,6 +275,8 @@ function kPress(e) {
       explore_index_function(e.key);
     case "hol":
       hol_function(e.key);
+    case "rps":
+      rps_function(e.key);
   }
 }
 
