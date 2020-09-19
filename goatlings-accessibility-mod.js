@@ -2,7 +2,7 @@
 // @name     Goatlings Accessibility Mod
 // @namespace goatlings.accessibility
 // @description Accessibility features for Goatlings
-// @version  1.0
+// @version  1.0.1
 // @grant    none
 // @match https://www.goatlings.com/*
 // ==/UserScript==
@@ -30,12 +30,14 @@ if (page.includes("battle")) {
         battleButtons[i].value = battleButtons[i].value + ` (${i})`
     }
   } else if (page === "https://www.goatlings.com/battle/thebattle") {
-    let battleItems = document.querySelectorAll(".itema");
-    for (i = 0; i < battleItems.length; i++) {
-      battleItems[i].innerHTML += `<br> ${i+1}`;
+    window.battleItems = document.querySelectorAll(".itema");
+    for (i = 0; i < window.battleItems.length; i++) {
+      window.battleItems[i].innerHTML += `<br> ${i+1}`;
     }
     let endLink = findText("+THE BATTLE IS OVER! CLICK HERE TO FINALIZE AND CLAIM REWARDS!+");
-    endLink.innerHTML += "<br>PRESS SPACE TO CONTINUE";
+    if (endLink) {
+      endLink.innerHTML += "<br>PRESS SPACE TO CONTINUE";
+    }
   } else if (page === "https://www.goatlings.com/battle/over") {
     findText("Battle Center").innerHTML += " (1)";
     findText("Training Center").innerHTML += " (2)";
@@ -141,8 +143,7 @@ function battle_function(key) {
         endLink.click();
       }
     } else if (key < 10) {
-      let battleItems = document.querySelectorAll(".itema");
-      battleItems[key - 1].childNodes[0].click();
+      window.battleItems[key - 1].childNodes[0].click();
     }
   } else if (page === "https://www.goatlings.com/battle/over") {
     // If on the main battle page OR battle over page
