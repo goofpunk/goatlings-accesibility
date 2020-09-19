@@ -5,7 +5,7 @@ This is a user script that adds some accessibility features to make more repetit
 
 
 ## What sections does it effect?
-As of right now, it works in Explore Areas, Battles, and the Higher or Lower game. Support for other modes is on the way!
+As of right now, it works in Explore Areas, Battles, Butterfly Snap, and the Higher or Lower game. Support for other modes is on the way!
 
 ## How do I install it?
 First, if install the [Greasemonkey extension on Firefox](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) or [Tampermonkey on Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo//Open). Then go to [Greasy Fork](https://greasyfork.org/en/scripts/411537-goatlings-accessibility-mod) and click the install button. Then follow the instructions to complete installation!
