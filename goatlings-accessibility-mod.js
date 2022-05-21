@@ -23,7 +23,7 @@ if (page.includes("battle")) {
     findText("Battle Center").innerHTML += " (1)";
     findText("Training Center").innerHTML += " (2)";
     findText("Your Battle").innerHTML += " (3)";
-    findText("Your Pets").innerHTML += " (4)"
+    findText("Your Goatlings").innerHTML += " (4)"
   } else if (page === "https://www.goatlings.com/battle/challengers" || page === "https://www.goatlings.com/battle/train_challengers") {
     let battleButtons = document.querySelectorAll('input[type="submit" i]');
     for (i = 1; i < battleButtons.length; i++) {
