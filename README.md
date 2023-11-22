@@ -1,4 +1,5 @@
 # Goatlings Accessibility Mod
+**NOVEMBER 2023 UPDATE:** This script is no longer being maintained, as I'm not actively playing Goatlings these days. I tried it just now, and it does still work, but I won't be fixing any future breakage.
 
 ## What is this?
 This is a user script that adds some accessibility features to make more repetitive parts of [Goatlings](https://goatlings.com) able to use via keyboard
